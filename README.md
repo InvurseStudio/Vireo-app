@@ -25,6 +25,22 @@
 
 ---
 
+## New in 0.9.4: Inkling as an agent, and thinking effort
+
+- **Inkling 2 Mini finishes the job.** It now thinks between every step of a long task
+  instead of running out of thinking halfway, and always ends with an answer. On our
+  seven-task office test it went from 4 tasks fully right to 5, with none failed.
+- **Choose how hard a model thinks.** Settings › Chats › Thinking effort: Low, Medium or
+  High, for Inkling 2 Mini, Muse Glimmer and Qwen 3.8. Low answers sooner; High is the
+  most careful.
+- **Trips land on your calendar at the right times.** Times in other time zones are
+  converted exactly with your Mac's own time zone data, so a flight or an event abroad
+  goes in at your time, with the local time in its notes.
+- **Inkling's native 4-bit version, made on your Mac,** and a steadier, faster drafter:
+  code is written about 10–20% faster than in 0.9.3.
+
+The full list is in the [0.9.4 release notes](../../releases/tag/v0.9.4).
+
 ## New in 0.9.3: a faster Inkling 2 Mini
 
 - **About twice as fast at reading, and quicker to write.** On an M5 Max, Inkling 2 Mini
