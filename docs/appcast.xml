@@ -3,40 +3,36 @@
     <channel>
         <title>Vireo</title>
         <item>
-            <title>0.9.2</title>
-            <pubDate>Fri, 20 Nov 2026 23:25:07 -0500</pubDate>
+            <title>0.9.3</title>
+            <pubDate>Sat, 21 Nov 2026 11:33:27 -0500</pubDate>
             <link>https://github.com/InvurseStudio/Vireo-app</link>
-            <sparkle:version>661</sparkle:version>
-            <sparkle:shortVersionString>0.9.2</sparkle:shortVersionString>
+            <sparkle:version>664</sparkle:version>
+            <sparkle:shortVersionString>0.9.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.2
+            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.3
 
-Vireo 0.9.2 adds a new model, **Inkling 2 Mini**, and makes the model picker and Vireo's memory use more careful.
+Vireo 0.9.3 makes Inkling 2 Mini much faster, remembers its chats, and adds a smaller version of it for Macs with 32 GB of memory.
 
-### New model: Inkling 2 Mini
+### Inkling 2 Mini
 
-- **Inkling 2 Mini** from Thinking Machines is in Settings › Models, for Macs with 48 GB of memory or more. It's a mixture-of-experts model (26B in all, 3.4B working on each token) that thinks before it answers, and it uses Vireo's tools like Gemma 4 and Qwen 3.5 do.
-- **Fast on Syrinx.** On a MacBook Pro with M5 Max, Inkling 2 Mini reads a prompt at about 1,450 tokens a second and writes about 50 tokens a second with 8K of context. It got all 14 of our agent and coding test tasks right.
-- It downloads as one 27.8 GB file (Q8_0), the version Syrinx is tested with.
-
-### Fixes and improvements
-
-- **The model picker only offers versions Syrinx can run.** Hugging Face repositories often carry versions in formats Syrinx can't compute with yet (such as IQ4_NL, Q2_K and Q3_K). They're no longer listed, so Vireo can't suggest a download that won't load. Importance-matrix files are no longer shown as models either.
-- **Less memory held between replies.** Vireo keeps at most 4 GB of recent chats ready in memory (less on Macs with under 64 GB), and when it's idle it lets go of older chats it has already saved to disk, so other apps get that memory back sooner.
+- **About twice as fast at reading, and quicker to write.** Syrinx's Inkling code was tuned throughout. On a MacBook Pro with M5 Max, Inkling 2 Mini now reads a prompt at about 2,950 tokens a second and writes about 65 tokens a second with 8K of context (0.9.2: about 1,450 and 50). Long chats gain the most.
+- **A drafter for faster replies.** Vireo now downloads Inkling's small DSpark drafter (400 MB) with the model. It guesses the next few words and Inkling checks them all at once, so code and text copied from earlier in the chat are written about 25–40% faster. Every word is still Inkling's own choice, and when the guesses stop paying off Vireo writes without them. If you installed Inkling 2 Mini with 0.9.2, choose **Get drafter** next to it in Settings › Models.
+- **Chats pick up where they left off.** Inkling chats are now saved like Gemma 4 and Qwen 3.5 chats, so going back to an earlier one loads it in a fraction of a second instead of reading the whole conversation again. New chats also start sooner, because Vireo keeps its instructions and tools ready instead of reading them again each time.
+- **A smaller version for 32 GB Macs.** Inkling 2 Mini (smaller) is the 4-bit IQ4_NL version: a 17.6 GB download that writes short replies about 20% faster than the full Q8_0 version and scores almost the same in our tests. It's in Settings › Models, and Inkling's version picker now offers it too.
 
 ### Good to know
 
-- Inkling 2 Mini carries on quickly in the chat you're in, but its chats aren't saved yet: going back to an earlier Inkling chat reads that conversation again before it answers. Gemma 4 and Qwen 3.5 chats pick up where they left off, as before.
 - Pictures still can't be attached to a chat. Vireo's engine is learning to see images; it isn't in this version yet.
+- The drafter is for Inkling 2 Mini only. Gemma 4 and Qwen 3.5 keep using their own ways of guessing ahead, as before.
 
-Everything else in [0.9.1](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.1) is unchanged.
+Everything else in [0.9.2](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.2) is unchanged.
 
 ### Requirements
 
-A Mac with Apple silicon (M1 or later) and macOS 14 or later. Inkling 2 Mini needs 48 GB of memory or more.
+A Mac with Apple silicon (M1 or later) and macOS 14 or later. Inkling 2 Mini needs 48 GB of memory or more; its smaller version, 32 GB.
 ]]></description>
-            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.2/Vireo-0.9.2-arm64.dmg" length="9717726" type="application/octet-stream" sparkle:edSignature="6ihJQaSp3XJQoQfga6cyB8Ox3wjML6Yp3LS2+1hiZPdVTFtKEG7aDZzQar7rRzIMHtCMslasjhUoizhkcS0bBg=="/>
+            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.3/Vireo-0.9.3-arm64.dmg" length="9778946" type="application/octet-stream" sparkle:edSignature="Yzh0X/d6VBhIlOtTVrvwjSQgiRDXU2dJNkYJJn3KqYhYP3GGzIM3upGJw2BovYhgLJnYA6RJUTbdQ9m+z/DjAQ=="/>
         </item>
     </channel>
 </rss>
