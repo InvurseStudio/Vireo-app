@@ -25,6 +25,20 @@
 
 ---
 
+## New in 0.9.3: a faster Inkling 2 Mini
+
+- **About twice as fast at reading, and quicker to write.** On an M5 Max, Inkling 2 Mini
+  now reads about 2,950 tokens a second and writes about 65 with 8K of context.
+- **A drafter for faster replies.** Inkling's small DSpark drafter (400 MB) downloads with
+  it and guesses ahead for Inkling to check: code and copied text are written about
+  25–40% faster, and every word is still Inkling's own.
+- **Chats pick up where they left off.** Inkling chats are now saved, so going back to one
+  loads it in a fraction of a second, and new chats start sooner.
+- **A smaller version for 32 GB Macs.** Inkling 2 Mini (smaller) is the 4-bit IQ4_NL
+  version, a 17.6 GB download that scores almost the same in our tests.
+
+The full list is in the [0.9.3 release notes](../../releases/tag/v0.9.3).
+
 ## New in 0.9.2: Inkling 2 Mini
 
 - **A new model.** Thinking Machines' **Inkling 2 Mini** is in Settings › Models for Macs
@@ -113,7 +127,7 @@ recommends. One small app, nothing else to install.
 
 ### 🔎 Pick your model
 Gemma 4 and Qwen 3.5 are tested and tuned for agent work, and Inkling 2 Mini is there
-for Macs with 48 GB or more. Search Hugging Face from
+for Macs with 32 GB or more. Search Hugging Face from
 the app for other GGUF models, see at a glance whether one fits your Mac, or add a
 folder of models you already have, such as an LM Studio library.
 
