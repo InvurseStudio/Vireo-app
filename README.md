@@ -8,7 +8,7 @@
   <strong>The private AI agent that does real work on your Mac.</strong><br>
   Hand it a job, not just a question. It works through your files, plans the steps,<br>
   checks its work and asks before it changes anything.<br>
-  Open models like Gemma 4 and Qwen 3.5, on Vireo's own engine, Syrinx. Nothing leaves your Mac.
+  Open models like Gemma 4, Qwen 3.5 and Inkling 2 Mini, on Vireo's own engine, Syrinx. Nothing leaves your Mac.
 </p>
 
 <p align="center">
@@ -25,53 +25,11 @@
 
 ---
 
-## New in 0.9.3: a faster Inkling 2 Mini
+## Latest: Vireo 0.9.4
 
-- **About twice as fast at reading, and quicker to write.** On an M5 Max, Inkling 2 Mini
-  now reads about 2,950 tokens a second and writes about 65 with 8K of context.
-- **A drafter for faster replies.** Inkling's small DSpark drafter (400 MB) downloads with
-  it and guesses ahead for Inkling to check: code and copied text are written about
-  25–40% faster, and every word is still Inkling's own.
-- **Chats pick up where they left off.** Inkling chats are now saved, so going back to one
-  loads it in a fraction of a second, and new chats start sooner.
-- **A smaller version for 32 GB Macs.** Inkling 2 Mini (smaller) is the 4-bit IQ4_NL
-  version, a 17.6 GB download that scores almost the same in our tests.
-
-The full list is in the [0.9.3 release notes](../../releases/tag/v0.9.3).
-
-## New in 0.9.2: Inkling 2 Mini
-
-- **A new model.** Thinking Machines' **Inkling 2 Mini** is in Settings › Models for Macs
-  with 48 GB of memory or more: a mixture-of-experts model (26B in all, 3.4B working on
-  each token) that thinks before it answers and uses Vireo's tools. On an M5 Max it reads
-  about 1,450 tokens a second and writes about 50, and it got all 14 of our agent and
-  coding test tasks right.
-- **A more careful model picker.** Versions of a model that Syrinx can't run (such as
-  IQ4_NL, Q2_K and Q3_K) are no longer offered, so Vireo can't suggest a download that
-  won't load.
-- **Less memory held between replies.** At most 4 GB of recent chats stay ready in
-  memory, and older ones already saved to disk are let go when Vireo is idle.
-
-The full list is in the [0.9.2 release notes](../../releases/tag/v0.9.2).
-
-## New in 0.9.1: Vireo's own engine
-
-Vireo now runs on **[Syrinx](https://github.com/InvurseStudio/Syrinx)**, an engine
-built for Vireo. It replaces the Python server and the separate MLX and llama.cpp
-runtimes that 0.9 started.
-
-- **One small download.** A 10 MB download (about 27 MB installed, down from about 850 MB), with nothing else to install. No bundled
-  Python and no background services: Start Model loads the model, and quitting
-  Vireo frees the memory.
-- **Built for agent work.** Syrinx is tuned for the models Vireo recommends and for
-  the way an agent works: long instructions, tool results and checking its work.
-  Going back to a chat picks up where it left off instead of reading the whole
-  conversation again.
-- **Straight on your Mac's GPU,** with GGUF models: Gemma 4, Qwen 3.5, Inkling 2 Mini
-  (from 0.9.2) and Llama.
-
-Updating from 0.9 keeps your chats, memories, skills, approvals and API keys. A few
-0.9 features are gone for now; see [Coming from Vireo 0.9](#coming-from-vireo-09).
+Inkling 2 Mini works through long jobs step by step and finishes them, trips land on your
+calendar at the right times, and you can choose how hard a model thinks (Low, Medium or
+High). [Release notes](../../releases/tag/v0.9.4).
 
 ## An agent, not just a chat window
 
@@ -126,8 +84,8 @@ recommends. One small app, nothing else to install.
 <td valign="top">
 
 ### 🔎 Pick your model
-Gemma 4 and Qwen 3.5 are tested and tuned for agent work, and Inkling 2 Mini is there
-for Macs with 32 GB or more. Search Hugging Face from
+Gemma 4, Qwen 3.5 and Inkling 2 Mini are tested and tuned for agent work; Inkling needs
+a Mac with 32 GB or more. Search Hugging Face from
 the app for other GGUF models, see at a glance whether one fits your Mac, or add a
 folder of models you already have, such as an LM Studio library.
 
@@ -222,10 +180,13 @@ These are the ones Vireo is tested and tuned on:
 | Gemma 4 E4B | ~5.2 GB |
 | Qwen 3.5 4B | ~2.7 GB |
 | Qwen 3.5 9B | ~5.7 GB |
+| Inkling 2 Mini (smaller), for 32 GB Macs | ~17.6 GB |
+| Inkling 2 Mini, for 48 GB Macs | ~28 GB |
 
-For agent jobs on your own files, larger models do noticeably better. Vireo also
-runs Gemma 4 26B and 31B and Qwen 3.8 27B, which suit Macs with 48 GB of memory or
-more.
+Inkling 2 Mini is Thinking Machines' mixture-of-experts model: 26B in all, with only
+3.4B working on each word, so it's quick for its size. For agent jobs on your own files,
+larger models do noticeably better. Vireo also runs Gemma 4 26B and 31B, Qwen 3.8 27B and
+Muse Glimmer 30B, which suit Macs with 48 GB of memory or more.
 
 ## Getting started
 
@@ -313,8 +274,8 @@ No. Running models locally needs Apple silicon (M1 or later).
 <summary><strong>Can I use my own models?</strong></summary>
 
 Yes, in GGUF format. Search Hugging Face from the app, or add a folder of models you
-already have. Vireo runs Gemma 4, Qwen 3.5 and 3.8, and Llama models; others are
-hidden from the model picker.
+already have. Vireo runs Gemma 4, Qwen 3.5 and 3.8, Inkling 2, Muse Glimmer and Llama
+models; others are hidden from the model picker.
 
 </details>
 
