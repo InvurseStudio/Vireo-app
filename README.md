@@ -25,11 +25,11 @@
 
 ---
 
-## Latest: Vireo 0.9.4
+## Latest: Vireo 0.9.4b
 
-Inkling 2 Mini works through long jobs step by step and finishes them, trips land on your
-calendar at the right times, and you can choose how hard a model thinks (Low, Medium or
-High). [Release notes](../../releases/tag/v0.9.4).
+Long chats stay fast: late in a long chat the app no longer redraws every message for each
+streamed word, so replies keep their speed from the first turn to the last. Everything in
+0.9.4 is unchanged. [Release notes](../../releases/tag/v0.9.4b).
 
 ## An agent, not just a chat window
 
