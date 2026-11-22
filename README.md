@@ -15,7 +15,7 @@
   <a href="../../releases/latest"><img src="https://img.shields.io/github/v/release/InvurseStudio/Vireo-app?label=latest&color=5B4FD6&style=flat-square" alt="Latest release"></a>
   <img src="https://img.shields.io/badge/macOS-14%2B-17171C?logo=apple&logoColor=white&style=flat-square" alt="macOS 14 or later">
   <img src="https://img.shields.io/badge/Apple%20Silicon-M1%20or%20later-17171C?logo=apple&logoColor=white&style=flat-square" alt="Apple Silicon">
-  <a href="https://github.com/InvurseStudio/Syrinx"><img src="https://img.shields.io/badge/engine-Syrinx-5B4FD6?style=flat-square" alt="Engine: Syrinx"></a>
+  <img src="https://img.shields.io/badge/engine-Syrinx-5B4FD6?style=flat-square" alt="Engine: Syrinx">
   <img src="https://img.shields.io/badge/made%20in-Canada%20%F0%9F%8D%81-C9C1FF?style=flat-square" alt="Made in Canada">
 </p>
 
@@ -239,9 +239,8 @@ still asks before it changes anything.
 <summary><strong>What is Syrinx?</strong></summary>
 
 Vireo's own engine: the part that runs the model on your Mac's GPU. It's written in
-Rust and built for Vireo and its models, and it's
-[on GitHub](https://github.com/InvurseStudio/Syrinx). A syrinx is a songbird's voice
-box; a vireo is a songbird.
+Rust and built for Vireo and its models, and it comes with Vireo. A syrinx is a
+songbird's voice box; a vireo is a songbird.
 
 </details>
 
