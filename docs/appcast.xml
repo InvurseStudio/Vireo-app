@@ -3,36 +3,64 @@
     <channel>
         <title>Vireo</title>
         <item>
-            <title>0.9.3</title>
-            <pubDate>Sat, 21 Nov 2026 11:33:27 -0500</pubDate>
+            <title>0.9.4</title>
+            <pubDate>Sat, 21 Nov 2026 19:19:14 -0500</pubDate>
             <link>https://github.com/InvurseStudio/Vireo-app</link>
-            <sparkle:version>664</sparkle:version>
-            <sparkle:shortVersionString>0.9.3</sparkle:shortVersionString>
+            <sparkle:version>671</sparkle:version>
+            <sparkle:shortVersionString>0.9.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.3
+            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.4
 
-Vireo 0.9.3 makes Inkling 2 Mini much faster, remembers its chats, and adds a smaller version of it for Macs with 32 GB of memory.
+Vireo 0.9.4 makes Inkling 2 Mini a much better agent, lets you choose how hard a model thinks, makes Inkling faster again, lets you make its native 4-bit version on your Mac, and shows Muse Glimmer models as ones Vireo can run.
 
-### Inkling 2 Mini
+### Choose how hard a model thinks
 
-- **About twice as fast at reading, and quicker to write.** Syrinx's Inkling code was tuned throughout. On a MacBook Pro with M5 Max, Inkling 2 Mini now reads a prompt at about 2,950 tokens a second and writes about 65 tokens a second with 8K of context (0.9.2: about 1,450 and 50). Long chats gain the most.
-- **A drafter for faster replies.** Vireo now downloads Inkling's small DSpark drafter (400 MB) with the model. It guesses the next few words and Inkling checks them all at once, so code and text copied from earlier in the chat are written about 25–40% faster. Every word is still Inkling's own choice, and when the guesses stop paying off Vireo writes without them. If you installed Inkling 2 Mini with 0.9.2, choose **Get drafter** next to it in Settings › Models.
-- **Chats pick up where they left off.** Inkling chats are now saved like Gemma 4 and Qwen 3.5 chats, so going back to an earlier one loads it in a fraction of a second instead of reading the whole conversation again. New chats also start sooner, because Vireo keeps its instructions and tools ready instead of reading them again each time.
-- **A smaller version for 32 GB Macs.** Inkling 2 Mini (smaller) is the 4-bit IQ4_NL version: a 17.6 GB download that writes short replies about 20% faster than the full Q8_0 version and scores almost the same in our tests. It's in Settings › Models, and Inkling's version picker now offers it too.
+- **Thinking effort.** Settings › Chats › Thinking has a new **Thinking effort** setting: Low, Medium or High. Low answers sooner and suits quick questions; High is the most careful, for sums, several files and anything with rules to check. It works with Inkling 2 Mini, Muse Glimmer and Qwen 3.8, and only shows when one of them is loaded. High is what they did before. On Inkling, two questions took 36 seconds at Low and 51 at High, both answered right.
+
+### Inkling 2 Mini as an agent
+
+On our test of real office work (seven tasks: invoices, a calendar trip, travel policy, card safety and more), Inkling went from 4 tasks fully right to 5, with none failed, and from 37 to 42 of 44 checks. Long tasks take longer, because Inkling now thinks between steps.
+
+- **It thinks between every step.** Inkling had one thinking budget for a whole reply, and long tasks used it up halfway through. It then searched the same things over and over and wrote "Let me check…" instead of doing the work. Now it thinks before each step, as Gemma and Qwen do.
+- **It finishes instead of stopping mid-task.** When a reply ran out of tool calls, Inkling could end on a line like "Let me check the policies folder…" and nothing else. It now always writes an answer, and says plainly what's still to do.
+- **Trips go on the calendar at the right times.** Asked to put a trip on the calendar, Inkling now adds every flight, drive and event, at your time with the local times in each event's notes. Before, it asked questions, made everything all-day, or put times in the wrong time zone.
+- **Less searching.** It reads what it finds instead of searching again under other spellings, and doesn't search old chats unless you mention one.
+- **Its thinking is shown** folded above the answer, as other models' is. Before, Inkling thought but the app showed nothing.
+
+### Calendar and time zones
+
+- **Times in other time zones are converted exactly.** A new tool turns a time in Perth, Singapore or anywhere else into your time, using your Mac's own time zone data (daylight saving included), so an event abroad lands at the right hour.
+- **The date and time Vireo is told now include your time zone.**
+- **No more approving an event that can't be added.** An event with a start time and no end (or an end before its start) is caught before you're asked, not after. And the same event isn't added twice in one reply.
+
+### Inkling 2 Mini, faster
+
+- **A native 4-bit version, made on your Mac.** Inkling's experts were trained in 4-bit numbers, and the downloads hold them rounded a second time. In Settings › Models, **Make native 4-bit version** downloads Thinking Machines' original weights (19.5 GB, deleted afterwards) and writes a 17.6 GB version with those numbers exactly as trained. It's as fast as the smaller version (short replies about 20% faster than Q8_0) with nothing rounded twice. You need about 38 GB free while it works, and the version you installed is kept. Find the new one under Installed.
+- **A steadier, faster drafter.** The drafter now guesses up to seven words at a time and stops as soon as it's unsure. Code is written about 10–20% faster than in 0.9.3 (a Python file about 106 → 119 tokens a second on a MacBook Pro with M5 Max). In chats past 80,000 tokens, where guessing cost more than it saved, Vireo now writes without it (about 10% faster at 128K).
+- **No more slow runs.** Inkling sometimes wrote at 71–82 tokens a second instead of 90 for a whole reply. Vireo's engine now asks macOS for the right priority, and replies write at a steady 90. This helps every model a little.
+- **Answer straight away.** With thinking off, Inkling still thinks briefly before most answers. Settings › Chats › **Answer straight away when thinking is off** stops that, so answers begin sooner. They can be less careful, so leave it off for sums and anything that needs checking.
+
+### Fixes
+
+- Inkling's replies no longer run its messages together ("…on the calendar.All the details…").
+- Inkling won't write a card number back to you, even while refusing to send it.
+- Muse Glimmer models in your Models folder were shown as unsupported, although Vireo's engine runs them. They can be loaded now.
+- Model versions in formats Vireo can't run (MXFP4, MXFP8 and downloaded NVFP4) are no longer offered, and a native Inkling file is labelled NVFP4 instead of Unknown.
+- With two drafter files beside a model, Vireo loaded the larger one. It now loads the smaller, which guesses the same and loads faster.
 
 ### Good to know
 
-- Pictures still can't be attached to a chat. Vireo's engine is learning to see images; it isn't in this version yet.
-- The drafter is for Inkling 2 Mini only. Gemma 4 and Qwen 3.5 keep using their own ways of guessing ahead, as before.
+- Pictures still can't be attached to a chat.
+- The drafter's word list is English and code. Text in other languages is written as before, just with fewer guesses.
 
-Everything else in [0.9.2](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.2) is unchanged.
+Everything else in [0.9.3](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.3) is unchanged.
 
 ### Requirements
 
-A Mac with Apple silicon (M1 or later) and macOS 14 or later. Inkling 2 Mini needs 48 GB of memory or more; its smaller version, 32 GB.
+A Mac with Apple silicon (M1 or later) and macOS 14 or later. Inkling 2 Mini needs 48 GB of memory or more; its smaller and native 4-bit versions, 32 GB.
 ]]></description>
-            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.3/Vireo-0.9.3-arm64.dmg" length="9778946" type="application/octet-stream" sparkle:edSignature="Yzh0X/d6VBhIlOtTVrvwjSQgiRDXU2dJNkYJJn3KqYhYP3GGzIM3upGJw2BovYhgLJnYA6RJUTbdQ9m+z/DjAQ=="/>
+            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.4/Vireo-0.9.4-arm64.dmg" length="9900959" type="application/octet-stream" sparkle:edSignature="EzyE/BN3NZmx06vJbXehhDg+3ig9r2ELi1gxk2WeLmnI8TB3bNXdfXcc3+DjO1ZAUaoGMBg11nKOKiybNOZ0AQ=="/>
         </item>
     </channel>
 </rss>
