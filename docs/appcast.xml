@@ -3,33 +3,40 @@
     <channel>
         <title>Vireo</title>
         <item>
-            <title>0.9.4b</title>
-            <pubDate>Sat, 21 Nov 2026 20:46:32 -0500</pubDate>
+            <title>0.9.4c</title>
+            <pubDate>Mon, 23 Nov 2026 17:10:13 -0500</pubDate>
             <link>https://github.com/InvurseStudio/Vireo-app</link>
-            <sparkle:version>673</sparkle:version>
-            <sparkle:shortVersionString>0.9.4b</sparkle:shortVersionString>
+            <sparkle:version>677</sparkle:version>
+            <sparkle:shortVersionString>0.9.4c</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.4b
+            <description sparkle:format="markdown"><![CDATA[## Vireo 0.9.4c
 
-Vireo 0.9.4b fixes long chats getting slower and slower.
+Vireo 0.9.4c fixes wrong replies from Inkling 2 Mini and Gemma 4 26B-A4B on M1–M4 Macs, and shows who a message will go to before you approve it.
 
-### Long chats stay fast
+### Right answers on M1–M4 Macs
 
-- **Late in a long chat, replies took minutes.** Each streamed word made the app redraw every message in the chat, so after a few dozen turns the app used a whole core while the model waited. In a 64-turn chat with Inkling 2 Mini, replies that took 8 seconds at the start took 50–250 seconds by turn 40. It was worst with Inkling, whose thinking is streamed too since 0.9.4.
-- **Now the app draws a streamed reply at most a dozen times a second, and only the messages on screen.** In the same long chat, eight more turns that had not finished one reply in two and a half minutes all finished in three, with the app using about a third of a core instead of all of it. A fresh 64-turn chat stayed at about 4 seconds a turn from start to end.
+- **Inkling 2 Mini and Gemma 4 26B-A4B could go wrong after a long read.** On Macs without the M5's GPU accelerators, the engine sometimes reused part of an earlier, longer batch of text when reading the next one. Replies could drift off topic or get facts wrong, and the same question could get a different answer each time. The model's scores were off by as much as 6.6 before the fix; they now match the reference to within 0.04 and are the same on every run.
+- M5 Macs weren't affected in normal use.
 
-### Also
+### Approving a message
 
-- The Statistics window names the engine as Syrinx, with your Mac's chip.
+- When Vireo asks to send a text in Messages, the "To" line now shows the contact it found and the phone number or email it will send to, not only the name the model typed.
 
-Everything else in [0.9.4](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.4) is unchanged.
+### Inkling 2 Mini as an agent
+
+- Counts both the first and last day of a date range, such as the days of a trip for a per diem.
+- When a request is outside what a policy allows, says so and writes nothing down, instead of recording an approval.
+
+In our test run of seven agent tasks, Inkling 2 Mini passed 5 and half-passed 2, up from 4 passed, 2 half-passed and 1 failed.
+
+Everything else in [0.9.4b](https://github.com/InvurseStudio/Vireo-app/releases/tag/v0.9.4b) is unchanged.
 
 ### Requirements
 
 A Mac with Apple silicon (M1 or later) and macOS 14 or later. Inkling 2 Mini needs 48 GB of memory or more; its smaller and native 4-bit versions, 32 GB.
 ]]></description>
-            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.4b/Vireo-0.9.4b-arm64.dmg" length="9913011" type="application/octet-stream" sparkle:edSignature="SA8p+713axZyE8aa1TkQF1KOA3LGn+WcYl/i41AENNmda2NmfYd6nU2qVsDIvQLB2OdaQucFZGVI4RDZmuKHDw=="/>
+            <enclosure url="https://github.com/InvurseStudio/Vireo-app/releases/download/v0.9.4c/Vireo-0.9.4c-arm64.dmg" length="9928868" type="application/octet-stream" sparkle:edSignature="YxZ1nTXGNAg1YiODGfiutjBAFKBFMWO9v6sjhSjGP2HTN3XMc/aXm6rLuRV4hEvSlO2ePwA6NvhXYgJz55zjDw=="/>
         </item>
     </channel>
 </rss>
