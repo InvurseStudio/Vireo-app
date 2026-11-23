@@ -25,11 +25,11 @@
 
 ---
 
-## Latest: Vireo 0.9.4b
+## Latest: Vireo 0.9.4c
 
-Long chats stay fast: late in a long chat the app no longer redraws every message for each
-streamed word, so replies keep their speed from the first turn to the last. Everything in
-0.9.4 is unchanged. [Release notes](../../releases/tag/v0.9.4b).
+Right answers on M1–M4 Macs: Inkling 2 Mini and Gemma 4 26B-A4B no longer go wrong after a
+long read. Message approvals show the number a text will go to, and Inkling is better at date
+ranges and policy limits. [Release notes](../../releases/tag/v0.9.4c).
 
 ## An agent, not just a chat window
 
